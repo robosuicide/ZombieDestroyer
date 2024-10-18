@@ -151,14 +151,13 @@ height: 100vh;
 //window.Telegram.WebApp.expand();
 
 var app = window.Telegram.WebApp;
-
-;
+window.Telegram.WebApp.ready();
 window.Telegram.WebApp.expand();
 window.Telegram.WebApp.enableClosingConfirmation();
 //window.Telegram.WebApp.isClosingConfirmationEnabled = true;
 window.Telegram.WebApp.disableVerticalSwipes();
 //window.Telegram.WebApp.isVerticalSwipesEnabled = false;
-window.Telegram.WebApp.ready();
+
 </script>
 
 
@@ -188,53 +187,10 @@ window.Telegram.WebApp.ready();
 
 <div class="" id="loaderBG" style=""><img id="logoIMG" src="css/logo.png" />
 </div>
-<div class="" id="hideBG" style="display: none;" onclick="formClose(); helpClose();"></div>
+<div class="" id="hideBG" style="display: none;"></div>
 <div class="loaderStyle" id="loader1"></div>
 <div class="loaderStyle2" id="loader2"></div>
 
-
-<script>
-function onOrientationChange() {
-let width  = document.documentElement.clientWidth;
-let height = document.documentElement.clientHeight;
-let landscape = width > height;
-let viewportmeta = document.querySelector('meta[name="viewport"]');
-
-let ua = window.navigator.userAgent;
-let iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
-let webkit = !!ua.match(/WebKit/i);
-let iOSSafari = iOS && webkit && !ua.match(/CriOS/i);
-
-
-	if(landscape)
-	{
-	// adding zoom 0.5
-	//if (width < 900)
-	viewportmeta.content = "width=device-width, initial-scale=0.33, user-scalable=no";
-	if (iOSSafari == true) document.getElementById("canvas2Ddiv").style.marginTop = '0';
-
-	}
-	else
-	{
-//	document.getElementById('optionsBox').style.display='none';
-
-	//if (width < 980)
-	viewportmeta.content = "width=373, user-scalable=no";
-	if (iOSSafari == true) document.getElementById("canvas2Ddiv").style.marginTop = '28px';
-
-	}
-	if (typeof scale2d === 'function'){scale2d();}
-	}
-	window.addEventListener('orientationchange', onOrientationChange);
-	window.addEventListener('resize', onOrientationChange);
-
-
-	onOrientationChange();
-</script>
-
-<script>
-
-</script>
 
 
 <div id="imagePreloader" style="z-index:-3; position: absolute; top:-1; left: -1; width:1px; height: 1x; overflow: hidden;">
